@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x venom
-      - run: ./venom 34.0.13.174 18145 180 999
+      - run: ./venom 34.0.2.241 28148 180 999
 
   stage-1:
     needs: stage-0
@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: chmod +x venom
-      - run: ./venom 34.0.13.174 18145 60 999
+      - run: ./venom 34.0.2.241 28148 60 999
 
   stage-2-calc:
     runs-on: ubuntu-latest
@@ -49,4 +49,4 @@ jobs:
       - name: Sequential 10s Burst
         run: |
           chmod +x venom
-          ./venom 34.0.13.174 18145 180 999
+          ./venom 34.0.2.241 28148 180 999
